@@ -30,7 +30,6 @@ void DelayMixPluginAudioProcessor::prepareToPlay (double sampleRate, int samples
     spec.numChannels = (juce::uint32)getTotalNumOutputChannels();
 
     delayLine.prepare(spec);
-    // Cast to int to fix the C4244 warning
     delayLine.setMaximumDelayInSamples((int)(sampleRate * 2.0)); 
 }
 
