@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="41.256226mm"
+   height="56.541573mm"
+   viewBox="0 0 41.256226 56.541574"
+   version="1.1"
+   id="svg5"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs2" />
+  <g
+     id="g4069"
+     transform="translate(-47.992953,-15.029426)">
+    <path
+       id="mix_rotary"
+       style="fill:#502d16;stroke:none;stroke-width:10.5833;stroke-linecap:round;stroke-linejoin:round;stop-color:#000000"
+       d="m 68.794767,15.030245 c -4.955346,-0.04395 -9.941179,1.680564 -13.919564,5.233272 -8.487219,7.579111 -9.227259,20.651274 -1.648478,29.13879 a 1.5876587,1.5876587 0 0 0 0.0021,0 1.5876587,1.5876587 0 0 0 0,0.0021 c 7.580041,8.486393 20.653682,9.224085 29.14034,1.644344 8.486658,-7.579739 9.223756,-20.651836 1.644345,-29.13879 -3.789706,-4.243478 -8.95166,-6.5495 -14.228073,-6.847644 -0.329775,-0.01863 -0.66028,-0.02911 -0.990637,-0.03204 z m -0.02429,3.153296 c 0.279156,0.0024 0.557983,0.01164 0.836642,0.02739 h 5.17e-4 c 4.458534,0.251929 8.820819,2.210531 12.039058,5.814116 6.436479,7.207167 5.814237,18.219619 -1.39268,24.656376 -6.801147,6.07435 -16.945027,5.785541 -23.480737,-0.314193 l 1.132747,-1.011825 a 15.875,15.874998 0 0 0 15.940629,3.291272 15.875,15.874998 0 0 0 9.774081,-20.188431 l -0.03876,-0.110071 a 15.875,15.874998 0 0 0 -20.241658,-9.662459 15.875,15.874998 0 0 0 -9.700183,20.224088 15.875,15.874998 0 0 0 2.143538,4.079338 l -1.12758,1.006657 c -5.324364,-7.18102 -4.467162,-17.291325 2.334225,-23.364983 3.378466,-3.016978 7.592822,-4.48336 11.780159,-4.447273 z">
+      <title
+         id="title299">mix_rotary</title>
+    </path>
+    <path
+       id="mix_overlay"
+       style="fill:#d38d5f;stroke-width:10.5833;stroke-linecap:round;stroke-linejoin:round;stop-color:#000000"
+       d="M 80.620744,31.497882 A 12.700001,12.7 0 0 1 72.801589,47.648724 12.700001,12.7 0 0 1 56.636445,39.859179 12.700001,12.7 0 0 1 64.396356,23.679789 12.700001,12.7 0 0 1 80.58994,31.410038">
+      <title
+         id="title297">mix_overlay</title>
+    </path>
+    <path
+       id="mix_value_canva"
+       style="fill:#e9c6af;stroke-width:3.175;stroke-linecap:round;stroke-linejoin:round;stop-color:#000000"
+       d="m 55.920933,58.558769 h 25.399999 v 6.35 H 55.920933 Z">
+      <title
+         id="title295">mix_value_canva</title>
+    </path>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:6.35px;line-height:1.2em;font-family:Arial;-inkscape-font-specification:'Arial Bold';text-align:center;text-decoration-color:#000000;letter-spacing:0px;text-anchor:middle;fill:#2b1100;stroke:none;stroke-width:3.175;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stop-color:#000000"
+       x="68.44265"
+       y="71.570999"
+       id="mix_title"><title
+         id="title293">mix_title</title><tspan
+         id="tspan1573-2"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:6.35px;font-family:Arial;-inkscape-font-specification:'Arial Bold';fill:#2b1100;stroke-width:3.175"
+         x="68.44265"
+         y="71.570999">Mix</tspan></text>
+  </g>
+</svg>
