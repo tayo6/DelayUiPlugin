@@ -23,6 +23,9 @@ juce_add_plugin(DelayMixPlugin
     FORMATS VST3
     PRODUCT_NAME "DelayMixPlugin")
 
+# ---> Tell JUCE to generate JuceHeader.h for our plugin <---
+juce_generate_juce_header(DelayMixPlugin)
+
 # Embed SVG Assets into BinaryData
 juce_add_binary_data(DelayMixAssets
     HEADER_NAME "BinaryData.h"
