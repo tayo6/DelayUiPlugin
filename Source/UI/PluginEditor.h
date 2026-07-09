@@ -1,7 +1,7 @@
 #pragma once
 #include <JuceHeader.h>
 #include "../DSP/PluginProcessor.h"
-#include "SvgKnob.h"
+#include "CustomKnob.h"
 
 class DelayMixPluginAudioProcessorEditor : public juce::AudioProcessorEditor {
 public:
@@ -13,11 +13,10 @@ public:
 
 private:
     DelayMixPluginAudioProcessor& audioProcessor;
-    
     std::unique_ptr<juce::Drawable> background;
     
-    SvgKnob delayKnob;
-    SvgKnob mixKnob;
+    CustomKnob delayKnob;
+    CustomKnob mixKnob;
 
     std::unique_ptr<juce::AudioProcessorValueTreeState::SliderAttachment> delayAttachment;
     std::unique_ptr<juce::AudioProcessorValueTreeState::SliderAttachment> mixAttachment;
