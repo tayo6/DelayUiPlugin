@@ -23,23 +23,21 @@ juce_add_plugin(DelayMixPlugin
     FORMATS VST3
     PRODUCT_NAME "DelayMixPlugin")
 
-# ---> Tell JUCE to generate JuceHeader.h for our plugin <---
+# Generate JuceHeader.h to prevent include errors
 juce_generate_juce_header(DelayMixPlugin)
 
-# Embed SVG Assets into BinaryData
+# Embed ONLY the background SVG into BinaryData
 juce_add_binary_data(DelayMixAssets
     HEADER_NAME "BinaryData.h"
     NAMESPACE BinaryData
     SOURCES
         Resources/plugin_background.svg
-        Resources/delay_knob.svg
-        Resources/mix_knob.svg
 )
 
 # Add Source Files
 target_sources(DelayMixPlugin PRIVATE
     Source/DSP/PluginProcessor.cpp
-    Source/UI/SvgKnob.cpp
+    Source/UI/CustomKnob.cpp
     Source/UI/PluginEditor.cpp
 )
 
