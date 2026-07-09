@@ -34,7 +34,6 @@ private:
     juce::AudioProcessorValueTreeState::ParameterLayout createParameterLayout();
     
     juce::dsp::DelayLine<float, juce::dsp::DelayLineInterpolationTypes::Linear> delayLine { 44100 };
-    std::vector<float> delayBufferData;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (DelayMixPluginAudioProcessor)
 };
