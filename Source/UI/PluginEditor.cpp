@@ -2,21 +2,24 @@
 
 DelayMixPluginAudioProcessorEditor::DelayMixPluginAudioProcessorEditor (DelayMixPluginAudioProcessor& p)
     : AudioProcessorEditor (&p), audioProcessor (p),
-      // Initialize knobs with their respective SVG data and internal SVG IDs
-      delayKnob(BinaryData::delay_knob_svg, BinaryData::delay_knob_svgSize, "delay_pointer", "delay_value_canva"),
-      mixKnob(BinaryData::mix_knob_svg, BinaryData::mix_knob_svgSize, "mix_rotary", "mix_value_canva")
+      delayKnob(CustomKnob::Delay),
+      mixKnob(CustomKnob::Mix)
 {
     background = juce::Drawable::createFromImageData(BinaryData::plugin_background_svg, BinaryData::plugin_background_svgSize);
 
     addAndMakeVisible(delayKnob);
     addAndMakeVisible(mixKnob);
 
-    // Attach UI to DSP parameters
     delayAttachment = std::make_unique<juce::AudioProcessorValueTreeState::SliderAttachment>(audioProcessor.apvts, "DELAY", delayKnob);
     mixAttachment = std::make_unique<juce::AudioProcessorValueTreeState::SliderAttachment>(audioProcessor.apvts, "MIX", mixKnob);
 
-    // Set the window size (Adjust to match your plugin_background.svg dimensions)
-    setSize (600, 400); 
+    // Set plugin size EXACTLY to the background SVG size
+    if (background != nullptr) {
+        auto bounds = background->getDrawableBounds();
+        setSize((int)bounds.getWidth(), (int)bounds.getHeight());
+    } else {
+        setSize (600, 400); 
+    }
 }
 
 DelayMixPluginAudioProcessorEditor::~DelayMixPluginAudioProcessorEditor() {}
@@ -33,7 +36,10 @@ void DelayMixPluginAudioProcessorEditor::paint (juce::Graphics& g)
 
 void DelayMixPluginAudioProcessorEditor::resized()
 {
-    // Adjust these coordinates to place the knobs correctly over your background
-    delayKnob.setBounds(100, 100, 150, 150);
-    mixKnob.setBounds(350, 100, 150, 150);
+    // NOTE: Replace these numbers with the exact X, Y, Width, and Height from your SVG editor!
+    // The height should be slightly larger than the width to fit the text label at the bottom.
+    // Format: setBounds(X, Y, Width, Height)
+    
+    delayKnob.setBounds(120, 200, 150, 180); 
+    mixKnob.setBounds(330, 200, 150, 180);
 }
