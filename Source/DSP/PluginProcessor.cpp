@@ -26,16 +26,17 @@ void DelayMixPluginAudioProcessor::prepareToPlay (double sampleRate, int samples
 {
     juce::dsp::ProcessSpec spec;
     spec.sampleRate = sampleRate;
-    spec.maximumBlockSize = samplesPerBlock;
-    spec.numChannels = getTotalNumOutputChannels();
+    spec.maximumBlockSize = (juce::uint32)samplesPerBlock;
+    spec.numChannels = (juce::uint32)getTotalNumOutputChannels();
 
     delayLine.prepare(spec);
-    delayLine.setMaximumDelayInSamples(sampleRate * 2.0); // Max 2 seconds
+    // Cast to int to fix the C4244 warning
+    delayLine.setMaximumDelayInSamples((int)(sampleRate * 2.0)); 
 }
 
 void DelayMixPluginAudioProcessor::releaseResources() {}
 
-void DelayMixPluginAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, juce::MidiBuffer& midiMessages)
+void DelayMixPluginAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, juce::MidiBuffer& /*midiMessages*/)
 {
     juce::ScopedNoDenormals noDenormals;
     auto totalNumInputChannels  = getTotalNumInputChannels();
@@ -66,6 +67,6 @@ void DelayMixPluginAudioProcessor::processBlock (juce::AudioBuffer<float>& buffe
 }
 
 juce::AudioProcessorEditor* DelayMixPluginAudioProcessor::createEditor() { return new DelayMixPluginAudioProcessorEditor (*this); }
-void DelayMixPluginAudioProcessor::getStateInformation (juce::MemoryBlock& destData) {}
-void DelayMixPluginAudioProcessor::setStateInformation (const void* data, int sizeInBytes) {}
+void DelayMixPluginAudioProcessor::getStateInformation (juce::MemoryBlock& /*destData*/) {}
+void DelayMixPluginAudioProcessor::setStateInformation (const void* /*data*/, int /*sizeInBytes*/) {}
 juce::AudioProcessor* JUCE_CALLTYPE createPluginFilter() { return new DelayMixPluginAudioProcessor(); }
