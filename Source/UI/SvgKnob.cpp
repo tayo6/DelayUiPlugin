@@ -1,5 +1,26 @@
 #include "SvgKnob.h"
 
+// Helper function to recursively find a Drawable by its ID or Name
+juce::Drawable* findNode(juce::Drawable* root, const juce::String& id)
+{
+    if (root == nullptr) return nullptr;
+    
+    // Check if the current node matches the ID
+    if (root->getComponentID() == id || root->getName() == id) 
+        return root;
+    
+    // Recursively search through children
+    for (auto* child : root->getChildren())
+    {
+        if (auto* childDrawable = dynamic_cast<juce::Drawable*>(child))
+        {
+            if (auto* found = findNode(childDrawable, id))
+                return found;
+        }
+    }
+    return nullptr;
+}
+
 SvgKnob::SvgKnob(const char* svgData, int svgSize, const juce::String& rotaryId, const juce::String& textId)
 {
     setSliderStyle(juce::Slider::RotaryHorizontalVerticalDrag);
@@ -8,14 +29,14 @@ SvgKnob::SvgKnob(const char* svgData, int svgSize, const juce::String& rotaryId,
     svg = juce::Drawable::createFromImageData(svgData, (size_t)svgSize);
     
     if (svg != nullptr) {
-        // Find the rotating part (e.g., mix_rotary or delay_pointer)
+        // Find the rotating part using our recursive helper
         if (rotaryId.isNotEmpty()) {
-            rotaryNode = svg->findChildById(rotaryId);
+            rotaryNode = findNode(svg.get(), rotaryId);
         }
         
-        // Find the text canvas, save its bounds, and hide it so we can draw JUCE text over it
+        // Find the text canvas, save its bounds, and hide it
         if (textId.isNotEmpty()) {
-            textNode = svg->findChildById(textId);
+            textNode = findNode(svg.get(), textId);
             if (textNode != nullptr) {
                 textBounds = textNode->getDrawableBounds();
                 textNode->setVisible(false); 
